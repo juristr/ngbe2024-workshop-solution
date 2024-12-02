@@ -6,6 +6,11 @@ on:
       - main
   pull_request:
 
+env:
+  SURGE_DOMAIN_STORE: ${{ secrets.SURGE_DOMAIN_STORE }}
+  SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
+  FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+
 permissions:
   actions: read
   contents: read
@@ -38,4 +43,8 @@ jobs:
       # - run: npx nx-cloud record -- echo Hello World
       # Nx Affected runs only tasks affected by the changes in this PR/commit. Learn more: https://nx.dev/ci/features/affected
       # When you enable task distribution, run the e2e-ci task instead of e2e
+      # - run: npx nx affected -t lint test build e2e deploy
+      #   if: github.ref == 'refs/heads/main'
+
       - run: npx nx affected -t lint test build e2e
+        if: github.ref != 'refs/heads/main'
