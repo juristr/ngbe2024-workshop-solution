@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/schema",
+  "version": 2,
+  "title": "FlyDeploy executor",
+  "description": "",
+  "type": "object",
+  "properties": {
+    "distLocation": {
+      "type": "string",
+      "description": "The location of the dist directory"
+    },
+    "flyAppName": {
+      "type": "string",
+      "description": "The name of the fly app"
+    }
+  },
+  "required": ["distLocation", "flyAppName"]
+}

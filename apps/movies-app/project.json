@@ -4,8 +4,8 @@
   "projectType": "application",
   "prefix": "movies",
   "sourceRoot": "apps/movies-app/src",
-  "implicitDependencies": ["shared-ui-theme"],
   "tags": ["scope:movies", "type:app"],
+  "implicitDependencies": ["shared-ui-theme"],
   "targets": {
     "build": {
       "executor": "@nx/angular:application",
@@ -97,6 +97,10 @@
         "buildTarget": "movies-app:build",
         "staticFilePath": "dist/apps/movies-app/browser"
       }
+    },
+    "deploy": {
+      "command": "npx surge dist/apps/movies-app/browser ${SURGE_DOMAIN} --token ${SURGE_TOKEN}",
+      "dependsOn": ["build"]
     }
   }
 }
