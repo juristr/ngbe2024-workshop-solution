@@ -25,8 +25,8 @@ export default defineConfig({
   },
   /* Run your local dev server before starting the tests */
   webServer: {
-    command: 'yarn nx run movies-app:serve',
-    url: 'http://localhost:4200',
+    command: 'npx nx serve movies-app',
+    url: baseURL,
     reuseExistingServer: !process.env.CI,
     cwd: workspaceRoot,
   },
