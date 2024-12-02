@@ -16,7 +16,7 @@
     "directory": {
       "type": "string",
       "description": "The directory where the library will be generated",
-      "enum": ["movies", "api", "shared"],
+      "enum": ["movies", "shared"],
       "x-prompt": {
         "message": "Which directory would you like to use?",
         "type": "list",
@@ -24,10 +24,6 @@
           {
             "value": "movies",
             "label": "movies"
-          },
-          {
-            "value": "api",
-            "label": "api"
           },
           {
             "value": "shared",
