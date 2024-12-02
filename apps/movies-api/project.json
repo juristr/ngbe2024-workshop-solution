@@ -24,6 +24,9 @@
         }
       }
     },
+    "deploycheck": {
+      "command": "flyctl apps list"
+    },
     "deploy": {
       "executor": "@nx-workshop/internal-plugin:fly-deploy",
       "outputs": [],
