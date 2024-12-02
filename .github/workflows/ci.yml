@@ -35,9 +35,15 @@ jobs:
           node-version: 20
           cache: 'npm'
 
+      - name: Setup flyctl
+        uses: superfly/flyctl-actions/setup-flyctl@master
+
       - run: npm ci --legacy-peer-deps
       - run: npx playwright install --with-deps
       - uses: nrwl/nx-set-shas@v4
+
+      - run: flyctl apps list
+        if: github.ref == 'refs/heads/main'
 
       # Prepend any command with "nx-cloud record --" to record its logs to Nx Cloud
       # - run: npx nx-cloud record -- echo Hello World
