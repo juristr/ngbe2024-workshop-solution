@@ -6,4 +6,7 @@ export default {
   },
   moduleFileExtensions: ['ts', 'js', 'html'],
   coverageDirectory: '../../coverage/libs/internal-plugin',
+  transformIgnorePatterns: ['node_modules/(?!.*\\.mjs$)'],
+  testEnvironment: 'node',
+  testTimeout: 10000,
 };

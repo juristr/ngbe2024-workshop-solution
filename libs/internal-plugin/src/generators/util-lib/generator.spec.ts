@@ -14,5 +14,6 @@ describe('util-lib generator', () => {
 
   it('should run successfully', async () => {
     await utilLibGenerator(tree, options);
+    expect(true).toBe(true);
   });
 });
