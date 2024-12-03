@@ -13,7 +13,7 @@ const runExecutor: PromiseExecutor<FlyDeployExecutorSchema> = async (
     } else {
       // consult https://fly.io/docs/reference/regions/ to get best region for you
       execSync(
-        `fly launch --now --name=${options.flyAppName} --copy-config --region=lax`,
+        `fly launch --now --name=${options.flyAppName} --yes --copy-config --region=lax`,
         {
           cwd,
           stdio: 'inherit',
