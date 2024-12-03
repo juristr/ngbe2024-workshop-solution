@@ -10,6 +10,7 @@ env:
   SURGE_DOMAIN_STORE: ${{ secrets.SURGE_DOMAIN_STORE }}
   SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
   FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+  NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
 
 permissions:
   actions: read
@@ -27,7 +28,8 @@ jobs:
       # Run this command as early as possible, before dependencies are installed
       # Learn more at https://nx.dev/ci/reference/nx-cloud-cli#npx-nxcloud-startcirun
       # Connect your workspace by running "nx connect" and uncomment this line to enable task distribution
-      - run: npx nx-cloud start-ci-run --distribute-on=".nx/workflows/dynamic-changesets.yaml" --stop-agents-after="e2e" --with-env-vars="SURGE_DOMAIN_STORE,SURGE_TOKEN,FLY_API_TOKEN"
+      - run: npx nx-cloud start-ci-run --distribute-on=".nx/workflows/dynamic-changesets.yaml" --stop-agents-after="e2e"
+      # - run: npx nx-cloud start-ci-run --distribute-on=".nx/workflows/dynamic-changesets.yaml" --stop-agents-after="e2e" --with-env-vars="SURGE_DOMAIN_STORE,SURGE_TOKEN,FLY_API_TOKEN"
       # - run: npx nx-cloud start-ci-run --distribute-on="3 ngbe-linux-medium-js" --stop-agents-after="e2e" --with-env-vars="SURGE_DOMAIN_STORE,SURGE_TOKEN,FLY_API_TOKEN"
       # - run: npx nx-cloud start-ci-run --distribute-on="3 linux-medium-js" --stop-agents-after="e2e"
 
