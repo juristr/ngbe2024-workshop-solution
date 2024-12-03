@@ -6,14 +6,14 @@ const runExecutor: PromiseExecutor<FlyDeployExecutorSchema> = async (
   options
 ) => {
   const cwd = options.distLocation;
-  const results = execSync(`fly apps list`);
+  const results = execSync(`flyctl apps list`);
   try {
     if (results.toString().includes(options.flyAppName)) {
-      execSync(`fly deploy`, { cwd, stdio: 'inherit' });
+      execSync(`flyctl deploy`, { cwd, stdio: 'inherit' });
     } else {
       // consult https://fly.io/docs/reference/regions/ to get best region for you
       execSync(
-        `fly launch --now --name=${options.flyAppName} --yes --copy-config --region=lax`,
+        `flyctl launch --now --name=${options.flyAppName} --yes --copy-config --region=lax`,
         {
           cwd,
           stdio: 'inherit',
