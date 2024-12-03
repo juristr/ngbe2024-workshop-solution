@@ -28,8 +28,8 @@ jobs:
       # Learn more at https://nx.dev/ci/reference/nx-cloud-cli#npx-nxcloud-startcirun
       # Connect your workspace by running "nx connect" and uncomment this line to enable task distribution
       # - run: npx nx-cloud start-ci-run --distribute-on=".nx/workflows/dynamic-changesets.yaml" --stop-agents-after="e2e" --with-env-vars="SURGE_DOMAIN_STORE,SURGE_TOKEN,FLY_API_TOKEN"
-      - run: npx nx-cloud start-ci-run --distribute-on="3 ngbe-linux-medium-js" --stop-agents-after="e2e" --with-env-vars="SURGE_DOMAIN_STORE,SURGE_TOKEN,FLY_API_TOKEN"
-      # - run: npx nx-cloud start-ci-run --distribute-on="3 linux-medium-js" --stop-agents-after="e2e"
+      # - run: npx nx-cloud start-ci-run --distribute-on="3 ngbe-linux-medium-js" --stop-agents-after="e2e" --with-env-vars="SURGE_DOMAIN_STORE,SURGE_TOKEN,FLY_API_TOKEN"
+      - run: npx nx-cloud start-ci-run --distribute-on="3 linux-medium-js" --stop-agents-after="e2e"
 
       # Cache node_modules
       - uses: actions/setup-node@v4
