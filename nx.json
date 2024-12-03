@@ -18,6 +18,9 @@
     "build": {
       "cache": true
     },
+    "deploy": {
+      "cache": true
+    },
     "deploycheck": {
       "cache": true
     },
