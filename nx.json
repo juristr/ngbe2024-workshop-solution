@@ -44,7 +44,7 @@
       "options": { "passWithNoTests": true },
       "configurations": { "ci": { "ci": true, "codeCoverage": true } }
     },
-    "e2e-ci--**/*": { "dependsOn": ["^build"] },
+    "e2e-ci--**/*": { "dependsOn": ["^build"], "parallelism": false },
     "@nx/js:tsc": {
       "cache": true,
       "dependsOn": ["^build"],
