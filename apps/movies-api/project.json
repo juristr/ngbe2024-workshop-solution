@@ -6,6 +6,7 @@
   "tags": ["type:api", "scope:movies"],
   "targets": {
     "build": {
+      "defaultConfiguration": "production",
       "configurations": {
         "production": {
           "externalDependencies": [
