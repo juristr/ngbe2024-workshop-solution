@@ -19,7 +19,13 @@
       "cache": true
     },
     "deploy": {
-      "cache": true
+      "cache": true,
+      "dependsOn": ["build"],
+      "inputs": [
+        "production",
+        "^production",
+        { "externalDependencies": ["nx"] }
+      ]
     },
     "deploycheck": {
       "cache": true

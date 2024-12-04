@@ -20,7 +20,9 @@
           ],
           "assets": [
             "apps/movies-api/src/assets",
-            "apps/movies-api/src/fly.toml"
+            "apps/movies-api/src/fly.toml",
+            "apps/movies-api/src/.dockerignore",
+            "apps/movies-api/src/Dockerfile"
           ]
         }
       }
@@ -30,6 +32,7 @@
     },
     "deploy": {
       "executor": "@nx-workshop/internal-plugin:fly-deploy",
+      "inputs": [{ "runtime": "fly version" }],
       "outputs": [],
       "options": {
         "distLocation": "dist/apps/movies-api",
