@@ -24,7 +24,9 @@
       "inputs": [
         "production",
         "^production",
-        { "externalDependencies": ["nx"] }
+        {
+          "externalDependencies": ["nx"]
+        }
       ]
     },
     "deploycheck": {
@@ -47,10 +49,20 @@
     "@nx/jest:jest": {
       "cache": true,
       "inputs": ["default", "^production", "{workspaceRoot}/jest.preset.js"],
-      "options": { "passWithNoTests": true },
-      "configurations": { "ci": { "ci": true, "codeCoverage": true } }
+      "options": {
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
     },
-    "e2e-ci--**/*": { "dependsOn": ["^build"], "parallelism": false },
+    "e2e-ci--**/*": {
+      "dependsOn": ["^build"],
+      "parallelism": false
+    },
     "@nx/js:tsc": {
       "cache": true,
       "dependsOn": ["^build"],
@@ -58,8 +70,18 @@
     }
   },
   "plugins": [
-    { "plugin": "@nx/playwright/plugin", "options": { "targetName": "e2e" } },
-    { "plugin": "@nx/eslint/plugin", "options": { "targetName": "lint" } },
+    {
+      "plugin": "@nx/playwright/plugin",
+      "options": {
+        "targetName": "e2e"
+      }
+    },
+    {
+      "plugin": "@nx/eslint/plugin",
+      "options": {
+        "targetName": "lint"
+      }
+    },
     {
       "plugin": "@nx/webpack/plugin",
       "options": {
@@ -75,6 +97,12 @@
         "testTargetName": "test",
         "typecheckTargetName": "typecheck"
       }
+    },
+    {
+      "plugin": "@nx/angular/plugin",
+      "options": {
+        "targetNamePrefix": ""
+      }
     }
   ],
   "generators": {
@@ -84,8 +112,13 @@
       "style": "css",
       "unitTestRunner": "jest"
     },
-    "@nx/angular:library": { "linter": "eslint", "unitTestRunner": "jest" },
-    "@nx/angular:component": { "style": "css" }
+    "@nx/angular:library": {
+      "linter": "eslint",
+      "unitTestRunner": "jest"
+    },
+    "@nx/angular:component": {
+      "style": "css"
+    }
   },
   "defaultProject": "movies-app",
   "nxCloudId": "674e1917c45dfce07bde1b4b",
