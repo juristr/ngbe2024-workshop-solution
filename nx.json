@@ -103,7 +103,8 @@
       "options": {
         "targetNamePrefix": ""
       }
-    }
+    },
+    "@nx/powerpack-owners"
   ],
   "generators": {
     "@nx/angular:application": {
@@ -122,5 +123,38 @@
   },
   "defaultProject": "movies-app",
   "nxCloudId": "674e1917c45dfce07bde1b4b",
-  "nxCloudUrl": "https://staging.nx.app"
+  "nxCloudUrl": "https://staging.nx.app",
+  "sync": {
+    "globalGenerators": ["@nx/powerpack-owners:sync-codeowners-file"]
+  },
+  "owners": {
+    "format": "github",
+    "patterns": [
+      {
+        "description": "Frontend team owns all UI and feature components",
+        "projects": ["tag:type:ui", "tag:type:feature"],
+        "owners": ["@frontend-team"]
+      },
+      {
+        "description": "Backend team owns all API and data-access components",
+        "projects": ["tag:type:api", "tag:type:data-access"],
+        "owners": ["@backend-team"]
+      },
+      {
+        "description": "Platform team owns all utility libraries and shared scope",
+        "projects": ["tag:type:util", "tag:scope:shared"],
+        "owners": ["@platform-team"]
+      },
+      {
+        "description": "Movies domain team owns all movies scope projects",
+        "projects": ["tag:scope:movies"],
+        "owners": ["@movies-team"]
+      },
+      {
+        "description": "Tech leads review all application-level changes",
+        "projects": ["tag:type:app"],
+        "owners": ["@tech-leads"]
+      }
+    ]
+  }
 }
