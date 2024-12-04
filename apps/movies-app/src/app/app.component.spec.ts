@@ -30,6 +30,10 @@ describe('AppComponent', () => {
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.innerHTML).toContain('router-outlet');
   });
+
+  it('should be reliable (but is not)', () => {
+    expect(Math.random() < 0.5).toBe(true);
+  });
 });
 
 @Component({
